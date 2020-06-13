@@ -25,7 +25,7 @@ SECRET_KEY = 'x+69*1@#cdb=p@xv(y%$mwn2%4dw7366hd-8-&g(knrs87by=-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ctweet.herokuapp.com']
 
 
 # Application definition
