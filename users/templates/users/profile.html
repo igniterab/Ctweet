@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br>
+<div class="card" style="width: 18rem;">
+    <img src="{{user.profile.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title"> {{user.username}} </h3>
+      <p class="card-text">{{user.profile.bio}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{user.email}}</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+  
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Profile Info</legend>
+          {{ u_form|crispy}}
+          {{ p_form|crispy }}
+      </fieldset>
+      <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Update</button>
+      </div>
+  </form>
+  </div>
+
+{% endblock %}
