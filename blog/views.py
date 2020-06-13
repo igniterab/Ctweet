@@ -41,7 +41,7 @@ class PostDetailView(DetailView):
  
 class PostCreateView(LoginRequiredMixin , CreateView):
     model = Post
-    fields = ['title','content']
+    fields = ['title','content','post_img']
 
     #for setting the current user to be the author of the post
     def form_valid(self , form):

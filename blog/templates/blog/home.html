@@ -3,21 +3,28 @@
  <br><h1 style="text-align: center;">What's in feed</h1><br>
     {% for post in posts %}
     <div class="card w-75">
-      <!--<img class="rounded-circle" src="{{ post.author.profile.image.url}}">-->
-        <img src="..." class="card-img-top" alt="...">
+        
         <div class="card-body">
-          <h3 class="card-title"><a href='{% url 'PostDetail' post.id %}' >{{post.title}} </a></h3>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h2 class="card-title"><a href='{% url 'PostDetail' post.id %}' >{{post.title}} </a></h2>
+          
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{post.content}}</li>
-          <li class="list-group-item"><a href="{% url 'user-posts' post.author.username %}">{{post.author}}</a></li>
+          <li class="list-group-item">{{post.snippet}}</li>
+        </ul>
+
+        
+          <div class="card-body">
+          
+            <button type="submit" name="support_it" value="{{post.id}}" class="btn btn-primary">Support</button>
+            <button type="submit" name="support_it" value="{{post.id}}" class="btn btn-secondary">Undermine</button>
+          
+          </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a href="{% url 'user-posts' post.author.username %}"><h3 style="color: darkgoldenrod;">{{post.author}}</h3></a>
+          <br><p class="card-text">Some quick example text to build on the </p></li>
           <li class="list-group-item">{{post.date_posted}}</li>
         </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
+      
       </div><br><br>
     
     {% endfor %}

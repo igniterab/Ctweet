@@ -3,20 +3,29 @@
  
   <br>
     <div class="card w-75">
-      <!--<img class="rounded-circle" src="{{ post.author.profile.image.url}}">-->
-        <img src="..." class="card-img-top" alt="...">
+      <img src="{{post.post_img.url}}" class="card-img-top" alt="...">
+       
         <div class="card-body">
-          <h3 class="card-title">{{object.title}}</h3>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h2 class="card-title">{{object.title}}</h2> 
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">{{object.content}}</li>
-          <li class="list-group-item"><a href="{% url 'user-posts' post.author.username %}">{{post.author}}</a></li>
-          <li class="list-group-item">{{object.date_posted}}</li>
         </ul>
+
+        
         <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a> &nbsp; &nbsp;
+        
+          <button type="submit" name="support_it" value="{{post.id}}" class="btn btn-primary">Support</button>
+          <button type="submit" name="support_it" value="{{post.id}}" class="btn btn-secondary">Undermine</button>
+        
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="{% url 'user-posts' post.author.username %}"><h3 style="color: darkgoldenrod;">{{post.author}}</h3></a><br>
+        <p class="card-text">{{post.author.bio}} </p></li>
+        <li class="list-group-item">{{post.date_posted}}</li>
+      </ul>
+    
+    </div><br><br>
      
           {% if object.author == user %}
           <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'Post-update' object.id %}">Update</a>
